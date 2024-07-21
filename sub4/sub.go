@@ -16,6 +16,8 @@ var bundle *i18n.Bundle
 func init() {
 	bundle = i18n.NewBundle(language.English)
 	bundle.RegisterUnmarshalFunc("json", json.Unmarshal)
+	// ファイル名は以下の形式を満たす必要がある。
+	// `{任意}.{言語}.{マーシャルする種類}`
 	if _, err := bundle.LoadMessageFileFS(localeFS, "resource/locale.en.json"); err != nil {
 		panic(err)
 	}
