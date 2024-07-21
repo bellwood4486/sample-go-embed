@@ -1,3 +1,4 @@
 {
-  "MSG1": "Hello, World"
+  "MSG1": "Hello, World",
+  "MSG2": "Hello, {{.Name}}"
 }

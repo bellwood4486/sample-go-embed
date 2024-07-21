@@ -30,3 +30,11 @@ func Print(lang string) {
 		MessageID: "MSG1",
 	}))
 }
+
+func Print2(lang string, name string) {
+	localizer := i18n.NewLocalizer(bundle, lang)
+	fmt.Println(localizer.MustLocalize(&i18n.LocalizeConfig{
+		MessageID:    "MSG2",
+		TemplateData: map[string]any{"Name": name},
+	}))
+}
