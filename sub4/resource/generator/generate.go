@@ -3,9 +3,11 @@ package main
 import (
 	"encoding/json"
 	"fmt"
+	"go/format"
 	"io"
 	"log"
 	"os"
+	"slices"
 	"strings"
 )
 
@@ -40,6 +42,11 @@ func main() {
 
 	// 定数として定義するGoコードを生成
 	constants := generateConstants(keys, outputPackageName)
+	tmp, err := format.Source([]byte(constants))
+	if err != nil {
+		log.Fatalf("Failed to format source code: %v", err)
+	}
+	constants = string(tmp)
 
 	// 生成されたコードをファイルに書き込む
 	if err := os.WriteFile(outputFileName, []byte(constants), 0644); err != nil {
@@ -55,6 +62,7 @@ func getKeys(m map[string]interface{}) []string {
 	for key := range m {
 		keys = append(keys, key)
 	}
+	slices.Sort(keys)
 	return keys
 }
 
