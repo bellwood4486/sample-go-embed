@@ -1,11 +1,11 @@
 package main
 
-import (
-	"github.com/bellwood4486/sample-go-embed/sub3"
-)
+import "github.com/bellwood4486/sample-go-embed/sub4"
 
 func main() {
 	//sub1.Print()
 	//sub2.Print()
-	sub3.Print()
+	//sub3.Print()
+	sub4.Print("ja")
+	sub4.Print("en")
 }
