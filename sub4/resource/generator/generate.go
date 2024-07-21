@@ -13,7 +13,7 @@ import (
 
 func main() {
 	const inputFileName = "../locale.ja.json"
-	const outputFileName = "../constants.go"
+	const outputFileName = "../message_id.go"
 	const outputPackageName = "resource"
 
 	// JSONファイルを読み込む
@@ -46,7 +46,7 @@ func main() {
 		log.Fatalf("Failed to write constants file %s: %v", outputFileName, err)
 	}
 
-	fmt.Printf("constants.go ファイルが生成されました。\n")
+	fmt.Printf("%s ファイルが生成されました。\n", outputFileName)
 }
 
 // getKeys retrieves the keys from the top-level of the JSON map.
