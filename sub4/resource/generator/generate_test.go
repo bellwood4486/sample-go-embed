@@ -28,7 +28,10 @@ const (
 	LevelTwo = "level_two"
 )
 `
-	result := generateConstants(keys, "resource")
+	result, err := generateConstants(keys, "resource")
+	if err != nil {
+		t.Fatalf("generateConstants failed: %s", err)
+	}
 	if result != expected {
 		t.Errorf("generateConstants() = %q; want %q", result, expected)
 	}
