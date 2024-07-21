@@ -4,6 +4,7 @@ import (
 	"embed"
 	"encoding/json"
 	"fmt"
+	"github.com/bellwood4486/sample-go-embed/sub4/resource"
 	"github.com/nicksnyder/go-i18n/v2/i18n"
 	"golang.org/x/text/language"
 )
@@ -29,14 +30,14 @@ func init() {
 func Print(lang string) {
 	localizer := i18n.NewLocalizer(bundle, lang)
 	fmt.Println(localizer.MustLocalize(&i18n.LocalizeConfig{
-		MessageID: "MSG1",
+		MessageID: resource.MSG1,
 	}))
 }
 
 func Print2(lang string, name string) {
 	localizer := i18n.NewLocalizer(bundle, lang)
 	fmt.Println(localizer.MustLocalize(&i18n.LocalizeConfig{
-		MessageID:    "MSG2",
+		MessageID:    resource.MSG2,
 		TemplateData: map[string]any{"Name": name},
 	}))
 }
